@@ -1,0 +1,6 @@
+BasedOnStyle: LLVM
+ColumnLimit: 100
+BinPackArguments: true
+BinPackParameters: true
+Cpp11BracedListStyle: true
+IndentWidth: 2

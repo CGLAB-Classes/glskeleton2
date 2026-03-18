@@ -1,0 +1,38 @@
+# Build directories
+build/
+cmake-build-*/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+*-prefix/
+
+# IDE / Editor
+.vs/
+.vscode/*
+!.vscode/settings.json
+.idea/
+*.suo
+*.user
+*.sln.docstates
+*.swp
+*~
+\#*\#
+.\#*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Compiled objects
+*.o
+*.obj
+*.ilk
+*.pdb
+
+# Mesh resources are tracked (override *.obj ignore above)
+!resources/meshes/**/*.obj
