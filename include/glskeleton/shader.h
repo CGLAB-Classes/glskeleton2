@@ -19,6 +19,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <filesystem>
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -31,7 +32,7 @@ public:
     GLuint ID = 0;
 
     /// Load, compile, and link vertex and fragment shaders from file paths
-    Shader(const std::string &vertexPath, const std::string &fragmentPath) {
+    Shader(const std::filesystem::path &vertexPath, const std::filesystem::path &fragmentPath) {
         // 1. Read shader source code from files
         std::string vertexCode   = readFile(vertexPath);
         std::string fragmentCode = readFile(fragmentPath);
@@ -129,7 +130,7 @@ public:
 
 private:
     /// Read entire file contents as a string
-    static std::string readFile(const std::string &path) {
+    static std::string readFile(const std::filesystem::path &path) {
         std::ifstream file;
         file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
         try {
@@ -141,7 +142,7 @@ private:
         } catch (const std::ifstream::failure &e) {
             std::cerr << "ERROR::SHADER::FILE_NOT_READ: " << path << "\n"
                       << e.what() << std::endl;
-            throw std::runtime_error("Failed to read shader file: " + path);
+            throw std::runtime_error("Failed to read shader file: " + path.u8string());
         }
     }
 

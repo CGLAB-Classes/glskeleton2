@@ -20,9 +20,9 @@ namespace glskeleton {
 /// working directory.
 inline std::filesystem::path getExecutableDir() {
 #if defined(_WIN32)
-  char buf[MAX_PATH];
-  GetModuleFileNameA(nullptr, buf, MAX_PATH);
-  return std::filesystem::path(buf).parent_path();
+  wchar_t buf[MAX_PATH];
+  GetModuleFileNameW(nullptr, buf, MAX_PATH);
+  return std::filesystem::canonical(buf).parent_path();
 #elif defined(__linux__)
   return std::filesystem::canonical("/proc/self/exe").parent_path();
 #elif defined(__APPLE__)
@@ -36,8 +36,8 @@ inline std::filesystem::path getExecutableDir() {
 }
 
 /// Return the absolute path to the resources directory next to the executable.
-inline std::string getResourceDir() {
-  return (getExecutableDir() / "resources").string();
+inline std::filesystem::path getResourceDir() {
+  return getExecutableDir() / "resources";
 }
 
 } // namespace glskeleton

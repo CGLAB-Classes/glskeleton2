@@ -27,8 +27,8 @@ public:
                         /* float_buffer */ false,
                         /* gl_major */ 3,
                         /* gl_minor */ 3) {
-    m_shader = std::make_unique<Shader>(glskeleton::getResourceDir() + "/shaders/basic.vert",
-                                        glskeleton::getResourceDir() + "/shaders/basic.frag");
+    m_shader = std::make_unique<Shader>(glskeleton::getResourceDir() / "shaders" / "basic.vert",
+                                        glskeleton::getResourceDir() / "shaders" / "basic.frag");
 
     set_background(nanogui::Color(0.2f, 0.3f, 0.3f, 1.0f));
   }
