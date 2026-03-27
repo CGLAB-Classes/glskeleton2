@@ -117,7 +117,7 @@ target_sources(glskeleton
 
 Resource files (shaders, meshes, etc.) in `resources/` are automatically copied next to the executable at build time. At runtime, the application locates resources relative to the executable via `glskeleton::getResourceDir()` (defined in `include/glskeleton/utils.h`), so it works correctly regardless of the current working directory or installation path.
 
-- **Adding resources**: place files under `resources/` and they will be available at runtime via `glskeleton::getResourceDir() + "/your/file"`.
+- **Adding resources**: place files under `resources/` and they will be available at runtime via `glskeleton::getResourceDir()`.
 - **Modifying shaders**: after editing a shader file in `resources/shaders/`, re-run the build (or just the copy step) to update the copy next to the executable.
 
 ## Submodule Initialization
